@@ -104,5 +104,19 @@ const allProds = [
 //when user clicks button
 //render a ul full of lis that tell the user hoe many times it has been clicked
 
+function voteResults() {
+  const results = document.getElementById("myResults");
+  const ul = document.createElement("ul");
+  for (let i = 0; i < allProds.length; i++) {
+    const li = document.createElement("li");
+    li.textContent = `You viewed ${allProds[i].name} ${allProds[i].views} times. You clicked it ${allProds[i].clicks} times.`;
+    ul.appendChild(li);
+  }
+  results.appendChild(ul);
+}
+
+const viewResultsButton = document.getElementById("viewResultsButton");
+viewResultsButton.addEventListener("click", voteResults);
+
 prodViewer.addEventListener("click", handleProdClick);
 renderProds();
