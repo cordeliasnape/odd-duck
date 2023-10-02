@@ -1,42 +1,81 @@
 body {
   background-color: rgb(206, 208, 216);
+  font-family: "Franklin Gothic Medium", sans-serif;
 }
 
 header {
   color: white;
-  background-color: peachpuff;
+  background-color: lavenderblush;
   height: 100px;
 }
+
+/* footer {
+  color: white;
+  background-color: lavenderblush;
+  height: 100px;
+} */
 
 main {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row-reverse;
 }
 
 h1 {
+  width: 100%;
   display: flex;
-  font-family: "Franklin Gothic Medium", sans-serif;
   margin: 20px;
   align-items: center;
   justify-content: center;
+  font-size: 40px;
 }
 
-#images {
-  width: 85%;
+#voteBox {
   display: grid;
+  width: 65%;
+  /* border: 2px black solid; */
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 20% 70% 10%;
   gap: 5%;
   margin: 20px;
+  padding: 10px;
 }
 
 .image-header {
   grid-row-start: 1;
+  padding: 20px;
 }
 
-#images img {
+#voteBox img {
   grid-row-start: 2;
   max-width: 100%;
   max-height: 100%;
   object-fit: cover;
+}
+
+#resultsBox {
+  display: flex;
+  /* border: solid red 3px; */
+  width: 30%;
+  flex-direction: column;
+}
+
+#viewResultsButton {
+  display: flex;
+  justify-content: center;
+  width: 200px;
+  height: 100px;
+  margin: 0 auto;
+  margin-top: 20px;
+  align-items: center;
+  font-size: larger;
+}
+
+#resultsBox ul {
+  padding: 20px;
+  list-style-type: square;
+}
+
+#resultsBox li {
+  padding: 5px;
 }

@@ -3,7 +3,7 @@ let image1 = document.querySelector("#img1");
 let image2 = document.querySelector("#img2");
 let image3 = document.querySelector("#img3");
 
-let votesRemaining = 25;
+let votesRemaining = 5;
 
 function Product(name, src) {
   this.name = name;
