@@ -3,7 +3,7 @@ let image1 = document.querySelector("#img1");
 let image2 = document.querySelector("#img2");
 let image3 = document.querySelector("#img3");
 
-let votesRemaining = 5;
+let votesRemaining = 25;
 
 function Product(name, src) {
   this.name = name;
@@ -48,7 +48,7 @@ function renderProds() {
   // end of function
 }
 
-//Handle goat being clicked in ONE FUCNTION
+//Handle product being clicked in ONE FUCNTION
 function handleProdClick(event) {
   //get name of product
   let clickedProd = event.target.alt;
@@ -59,9 +59,9 @@ function handleProdClick(event) {
     //render more
     renderProds();
   }
-  //increase clicks of goats
+  //increase clicks of prods
   for (let i = 0; i < allProds.length; i++) {
-    //check if name of goat in array is same as alt  of image
+    //check if name of product in array is same as alt  of image
     if (clickedProd === allProds[i].name) {
       //increase clicks then stop loop if target found
       allProds[i].clicks++;
@@ -109,7 +109,7 @@ function voteResults() {
   const ul = document.createElement("ul");
   for (let i = 0; i < allProds.length; i++) {
     const li = document.createElement("li");
-    li.textContent = `You viewed ${allProds[i].name} ${allProds[i].views} times. You clicked it ${allProds[i].clicks} times.`;
+    li.textContent = `You viewed ${allProds[i].name} ${allProds[i].views} times. You clicked it ${allProds[i].clicks} times.`; //caled template literal
     ul.appendChild(li);
   }
   results.appendChild(ul);
@@ -120,3 +120,5 @@ viewResultsButton.addEventListener("click", voteResults);
 
 prodViewer.addEventListener("click", handleProdClick);
 renderProds();
+
+console.table(allProds);
