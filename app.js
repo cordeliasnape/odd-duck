@@ -81,7 +81,7 @@ function handleProdClick(event) {
       clicksData.push(allProds[i].clicks);
     }
 
-    console.log(clicksData);
+    // console.log(clicksData);
     loadChart();
   }
 }
@@ -126,7 +126,7 @@ function voteResults() {
 }
 
 //adding a chart 03/10
-//make all values have a variable
+//make all values have a variable - added data to end of handle function
 
 const nameData = [];
 const srcData = [];
@@ -144,12 +144,14 @@ function loadChart() {
         {
           label: "# of views",
           data: viewsData,
-          borderWidth: 1,
+          borderWidth: 3,
+          // backgroundColor: ["red", "#cdaa7f", "skyblue", "green", "orange"],
         },
         {
           label: "# of clicks",
           data: clicksData,
-          borderWidth: 1,
+          borderWidth: 3,
+          // backgroundColor: ["red", "#cdaa7f", "skyblue", "green", "orange"],
         },
       ],
     },

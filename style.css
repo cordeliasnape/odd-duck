@@ -1,12 +1,24 @@
 body {
-  background-color: rgb(206, 208, 216);
   font-family: "Franklin Gothic Medium", sans-serif;
 }
 
 header {
   color: white;
-  background-color: lavenderblush;
-  height: 100px;
+  background-color: rgb(219, 169, 220);
+  height: 150px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+#logo {
+  margin: 0px 50px;
+}
+
+h1 {
+  display: flex;
+  margin: 20px;
+  font-size: 40px;
 }
 
 /* footer {
@@ -18,46 +30,36 @@ header {
 main {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row-reverse;
-}
-
-h1 {
   width: 100%;
-  display: flex;
-  margin: 20px;
-  align-items: center;
-  justify-content: center;
-  font-size: 40px;
+  flex-direction: row;
+  height: 800px;
 }
 
 #voteBox {
-  display: grid;
+  /* outline: 2px black solid; */
+  display: flex;
+  justify-content: space-between center;
+  align-items: center;
   width: 65%;
-  /* border: 2px black solid; */
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 20% 70% 10%;
+  height: 400px;
   gap: 5%;
-  margin: 20px;
   padding: 10px;
-}
-
-.image-header {
-  grid-row-start: 1;
-  padding: 20px;
+  margin: 10px;
 }
 
 #voteBox img {
-  grid-row-start: 2;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: cover;
+  display: flex;
+  max-width: 30%;
+  height: max-content;
 }
 
 #resultsBox {
   display: flex;
-  /* border: solid red 3px; */
+  /* outline: 2px black solid; */
   width: 30%;
+  height: 700px;
   flex-direction: column;
+  margin: 10px;
 }
 
 #viewResultsButton {
@@ -79,3 +81,20 @@ h1 {
 #resultsBox li {
   padding: 5px;
 }
+
+#chartDiv {
+  display: flex;
+  /* outline: 2px black solid; */
+  width: 65%;
+  height: 300px;
+  position: absolute;
+  bottom: -150px;
+  right: 30px;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* #myChart {
+  
+} */
