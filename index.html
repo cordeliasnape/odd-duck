@@ -7,11 +7,19 @@
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
     <script src="./app.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
-    <header></header>
-    <main>
+    <header>
       <h1>Choose your favourite product by Odd Duck Product Co.!:</h1>
+    </header>
+    <main>
+      <article id="resultsBox">
+        <button class="clicks-allowed" id="viewResultsButton">
+          View Results
+        </button>
+        <div id="myResults"></div>
+      </article>
       <section id="voteBox">
         <h2 class="img-header">Image 1</h2>
         <h2 class="img-header">Image 2</h2>
@@ -20,12 +28,9 @@
         <img id="img2" />
         <img id="img3" />
       </section>
-      <article id="resultsBox">
-        <button class="clicks-allowed" id="viewResultsButton">
-          View Results
-        </button>
-        <div id="myResults"></div>
-      </article>
+      <div>
+        <canvas id="myChart"></canvas>
+      </div>
     </main>
     <footer></footer>
   </body>

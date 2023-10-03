@@ -73,6 +73,16 @@ function handleProdClick(event) {
   if (votesRemaining === 0) {
     prodViewer.removeEventListener("click", handleProdClick);
     alert("You have used all of your votes.\nPlease view the results.");
+
+    for (let i = 0; i < allProds.length; i++) {
+      nameData.push(allProds[i].name);
+      srcData.push(allProds[i].src);
+      viewsData.push(allProds[i].views);
+      clicksData.push(allProds[i].clicks);
+    }
+
+    console.log(clicksData);
+    loadChart();
   }
 }
 
@@ -115,10 +125,48 @@ function voteResults() {
   results.appendChild(ul);
 }
 
+//adding a chart 03/10
+//make all values have a variable
+
+const nameData = [];
+const srcData = [];
+const viewsData = [];
+const clicksData = [];
+
+//render in chart
+const ctx = document.getElementById("myChart");
+function loadChart() {
+  new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: nameData,
+      datasets: [
+        {
+          label: "# of views",
+          data: viewsData,
+          borderWidth: 1,
+        },
+        {
+          label: "# of clicks",
+          data: clicksData,
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+}
+
+// call functions
+
 const viewResultsButton = document.getElementById("viewResultsButton");
 viewResultsButton.addEventListener("click", voteResults);
 
 prodViewer.addEventListener("click", handleProdClick);
 renderProds();
-
-console.table(allProds);
