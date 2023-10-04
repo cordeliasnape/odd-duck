@@ -3,13 +3,55 @@ let image1 = document.querySelector("#img1");
 let image2 = document.querySelector("#img2");
 let image3 = document.querySelector("#img3");
 
-let votesRemaining = 25;
+let votesRemaining = 5;
 
-function Product(name, src) {
+const allProds = []; //check
+
+function Product(name, src, views, clicks) {
   this.name = name;
   this.src = src;
-  this.views = 0;
-  this.clicks = 0;
+  this.views = views;
+  this.clicks = clicks;
+
+  allProds.push(this);
+}
+
+checkLocal();
+console.log(checkLocal);
+
+function checkLocal() {
+  if (localStorage.getItem("products") === null) {
+    new Product("bag", "./img/bag.jpg", 0, 0);
+    new Product("banana", "./img/banana.jpg", 0, 0);
+    new Product("bathroom", "./img/bathroom.jpg", 0, 0);
+    new Product("boots", "./img/boots.jpg", 0, 0);
+    new Product("breakfast", "./img/breakfast.jpg", 0, 0);
+    new Product("bubblegum", "./img/bubblegum.jpg", 0, 0);
+    new Product("chair", "./img/chair.jpg", 0, 0);
+    new Product("cthulhu", "./img/cthulhu.jpg", 0, 0);
+    new Product("dog-duck", "./img/dog-duck.jpg", 0, 0);
+    new Product("dragon", "./img/dragon.jpg", 0, 0);
+    new Product("pen", "./img/pen.jpg", 0, 0);
+    new Product("pet-sweet", "./img/pet-sweep.jpg", 0, 0);
+    new Product("scissors", "./img/scissors.jpg", 0, 0);
+    new Product("shark", "./img/shark.jpg", 0, 0);
+    new Product("sweep", "./img/sweep.png", 0, 0);
+    new Product("tauntaun", "./img/tauntaun.jpg", 0, 0);
+    new Product("unicorn", "./img/unicorn.jpg", 0, 0);
+    new Product("water-can", "./img/water-can.jpg", 0, 0);
+    new Product("wine-glass", "./img/wine-glass.jpg", 0, 0);
+  } else {
+    const prodsLS = JSON.parse(localStorage.getItem("products")); //parse fixed it, we're just getting the products from LS
+
+    for (let i = 0; i < prodsLS.length; i++) {
+      new Product(
+        prodsLS[i].name,
+        prodsLS[i].src,
+        prodsLS[i].views,
+        prodsLS[i].clicks
+      );
+    }
+  }
 }
 
 function getRandomIndex() {
@@ -82,32 +124,11 @@ function handleProdClick(event) {
     }
 
     // console.log(clicksData);
+
     loadChart();
+    localStorage.setItem("products", JSON.stringify(allProds));
   }
 }
-
-// array
-const allProds = [
-  new Product("bag", "./img/bag.jpg"),
-  new Product("banana", "./img/banana.jpg"),
-  new Product("bathroom", "./img/bathroom.jpg"),
-  new Product("boots", "./img/boots.jpg"),
-  new Product("breakfast", "./img/breakfast.jpg"),
-  new Product("bubblegum", "./img/bubblegum.jpg"),
-  new Product("chair", "./img/chair.jpg"),
-  new Product("cthulhu", "./img/cthulhu.jpg"),
-  new Product("dog-duck", "./img/dog-duck.jpg"),
-  new Product("dragon", "./img/dragon.jpg"),
-  new Product("pen", "./img/pen.jpg"),
-  new Product("pet-sweet", "./img/pet-sweep.jpg"),
-  new Product("scissors", "./img/scissors.jpg"),
-  new Product("shark", "./img/shark.jpg"),
-  new Product("sweep", "./img/sweep.png"),
-  new Product("tauntaun", "./img/tauntaun.jpg"),
-  new Product("unicorn", "./img/unicorn.jpg"),
-  new Product("water-can", "./img/water-can.jpg"),
-  new Product("wine-glass", "./img/wine-glass.jpg"),
-];
 
 //render results
 
