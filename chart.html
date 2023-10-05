@@ -7,26 +7,19 @@
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
     <script src="./app.js" defer></script>
+    <script src="./chart.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
     <header>
       <img id="logo" src="https://placehold.co/160x80" />
-      <h1>Odd Duck Product Co.</h1>
+      <h1>Chart - Odd Duck Product Co.</h1>
     </header>
-    <main id="indexMain">
-      <article id="resultsBox">
-        <button class="clicks-allowed" id="viewResultsButton">
-          View Results
-        </button>
-        <div id="myResults"></div>
-      </article>
-      <section id="voteBox">
-        <img id="img1" />
-        <img id="img2" />
-        <img id="img3" />
-      </section>
-      <a href="chart.html">Go to Chart Page</a>
+    <main id="chartMain">
+      <a href="index.html">Go to Home Page</a>
+      <div id="chartDiv">
+        <canvas id="myChart"></canvas>
+      </div>
     </main>
     <footer></footer>
   </body>

@@ -116,24 +116,18 @@ function handleProdClick(event) {
     prodViewer.removeEventListener("click", handleProdClick);
     alert("You have used all of your votes.\nPlease view the results.");
 
-    for (let i = 0; i < allProds.length; i++) {
-      nameData.push(allProds[i].name);
-      srcData.push(allProds[i].src);
-      viewsData.push(allProds[i].views);
-      clicksData.push(allProds[i].clicks);
-    }
-
     // console.log(clicksData);
 
-    loadChart();
     localStorage.setItem("products", JSON.stringify(allProds));
+
+    // loadChart();
   }
 }
 
 //render results
 
 //when user clicks button
-//render a ul full of lis that tell the user hoe many times it has been clicked
+//render a ul full of lis that tell the user how many times it has been clicked
 
 function voteResults() {
   const results = document.getElementById("myResults");
@@ -149,42 +143,49 @@ function voteResults() {
 //adding a chart 03/10
 //make all values have a variable - added data to end of handle function
 
-const nameData = [];
-const srcData = [];
-const viewsData = [];
-const clicksData = [];
+//working chart:
+
+// const nameData = [];
+// const viewsData = [];
+// const clicksData = [];
+
+// const handleButtonClick = function () {
+//   const nameData = JSON.parse(localStorage.getItem("nameData"));
+//   const viewsData = JSON.parse(localStorage.getItem("viewsData"));
+//   const clicksData = JSON.parse(localStorage.getItem("clicksData"));
+// };
 
 //render in chart
-const ctx = document.getElementById("myChart");
-function loadChart() {
-  new Chart(ctx, {
-    type: "bar",
-    data: {
-      labels: nameData,
-      datasets: [
-        {
-          label: "# of views",
-          data: viewsData,
-          borderWidth: 3,
-          // backgroundColor: ["red", "#cdaa7f", "skyblue", "green", "orange"],
-        },
-        {
-          label: "# of clicks",
-          data: clicksData,
-          borderWidth: 3,
-          // backgroundColor: ["red", "#cdaa7f", "skyblue", "green", "orange"],
-        },
-      ],
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true,
-        },
-      },
-    },
-  });
-}
+// function loadChart() {
+//   const ctx = document.getElementById("myChart");
+//   new Chart(ctx, {
+//     type: "bar",
+//     data: {
+//       labels: nameData,
+//       datasets: [
+//         {
+//           label: "# of views",
+//           data: viewsData,
+//           borderWidth: 3,
+//           // backgroundColor: ["red", "#cdaa7f", "skyblue", "green", "orange"],
+//         },
+//         {
+//           label: "# of clicks",
+//           data: clicksData,
+//           borderWidth: 3,
+//           // backgroundColor: ["red", "#cdaa7f", "skyblue", "green", "orange"],
+//         },
+//       ],
+//     },
+//     options: {
+//       scales: {
+//         y: {
+//           beginAtZero: true,
+//         },
+//       },
+//     },
+//   });
+// }
 
 // call functions
 
