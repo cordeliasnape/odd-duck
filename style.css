@@ -35,6 +35,14 @@ h1 {
   height: 800px;
 }
 
+#indexMain {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-direction: row;
+}
+
 #voteBox {
   /* outline: 2px black solid; */
   display: flex;
