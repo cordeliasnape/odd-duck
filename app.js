@@ -7,6 +7,8 @@ let votesRemaining = 5;
 
 const allProds = []; //check
 
+let previous = [];
+
 function Product(name, src, views, clicks) {
   this.name = name;
   this.src = src;
@@ -68,11 +70,18 @@ function renderProds() {
   while (
     prod1Index === prod2Index ||
     prod2Index === prod3Index ||
-    prod3Index === prod1Index
+    prod3Index === prod1Index ||
+    previous.includes(prod1Index) ||
+    previous.includes(prod2Index) ||
+    previous.includes(prod3Index)
   ) {
+    prod1Index = getRandomIndex();
     prod2Index = getRandomIndex();
     prod3Index = getRandomIndex();
   }
+
+  // prevent double showing by adding into array
+  previous = [prod1Index, prod2Index, prod3Index];
 
   //change src and names of all images
   image1.src = allProds[prod1Index].src;
